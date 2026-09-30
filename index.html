@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Актив Лингва — тест уровня английского</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+    <section id="screen-start" class="screen screen--active" aria-label="Старт">
+      <div class="card">
+        <header class="brand">
+          <span class="brand__badge" aria-hidden="true">АЛ</span>
+          <div class="brand__text">
+            <p class="brand__name">Актив Лингва</p>
+            <p class="brand__sub">школа иностранных языков</p>
+          </div>
+        </header>
+        <h1 class="title">Тест уровня английского</h1>
+        <p class="lead">Короткий тест покажет ваш примерный уровень и сразу подберёт подходящую группу обучения.</p>
+        <ul class="facts">
+          <li class="fact"><span class="fact__num">8</span><span class="fact__label">вопросов</span></li>
+          <li class="fact"><span class="fact__num">3</span><span class="fact__label">минуты</span></li>
+          <li class="fact"><span class="fact__num">0</span><span class="fact__label">ожидания</span></li>
+        </ul>
+        <div class="actions actions--column">
+          <button type="button" id="btn-start" class="btn btn--primary btn--lg">Начать тест</button>
+          <button type="button" id="btn-continue" class="btn btn--ghost btn--lg" hidden>Продолжить прохождение</button>
+        </div>
+        <p class="hint">Результат появится сразу после последнего вопроса — регистрироваться не нужно.</p>
+      </div>
+    </section>
+
+    <section id="screen-quiz" class="screen" aria-label="Вопрос">
+      <div class="card">
+        <div class="progress" id="progress" role="progressbar" aria-valuemin="0" aria-valuemax="8" aria-valuenow="1">
+          <div class="progress__fill" id="progress-fill"></div>
+        </div>
+        <p class="progress__label" id="progress-label">Вопрос 1 из 8</p>
+        <div id="question-box" class="question-box">
+          <div class="passage" id="question-passage" hidden></div>
+          <h2 class="question" id="question-text"></h2>
+          <div class="options" id="options"></div>
+        </div>
+        <div class="actions">
+          <button type="button" id="btn-back" class="btn btn--ghost" hidden>Назад</button>
+          <button type="button" id="btn-next" class="btn btn--primary" disabled>Далее</button>
+        </div>
+        <p class="hint hint--keys">Подсказка: цифры 1–4 выбирают ответ, Enter — «Далее», Backspace — «Назад».</p>
+      </div>
+    </section>
+
+    <section id="screen-result" class="screen" aria-label="Результат">
+      <div class="card" id="result-card">
+        <div class="level">
+          <p class="level__label">Ваш уровень</p>
+          <p class="level__row">
+            <span class="level__title" id="level-title"></span>
+            <span class="level__percent" id="level-percent"></span>
+          </p>
+          <p class="level__score" id="level-score"></p>
+        </div>
+
+        <div class="group">
+          <p class="group__label">Рекомендуемая группа</p>
+          <h2 class="group__title" id="group-title"></h2>
+          <p class="group__desc" id="group-desc"></p>
+          <ul class="group__list" id="group-list"></ul>
+        </div>
+
+        <h3 class="section-title">Баллы по блокам</h3>
+        <div class="bars" id="skill-bars"></div>
+
+        <div class="warnings" id="weak-warnings" hidden></div>
+
+        <p class="disclaimer" id="disclaimer"></p>
+
+        <div class="actions actions--column">
+          <button type="button" id="btn-copy" class="btn btn--primary">Скопировать результат</button>
+          <button type="button" id="btn-restart" class="btn btn--ghost">Пройти заново</button>
+        </div>
+        <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="questions.js" defer></script>
+  <script src="scoring.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
